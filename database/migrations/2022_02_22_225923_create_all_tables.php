@@ -16,7 +16,7 @@ class CreateAllTables extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('avatar')->defautl('default.png');
+            $table->string('avatar')->default('default.png');
             $table->string('email')->unique();
             $table->string('password');
         });
@@ -37,7 +37,7 @@ class CreateAllTables extends Migration
         Schema::create('barbers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('avatar')->defautl('default.png');
+            $table->string('avatar')->default('default.png');
             $table->float('starts')->default(0);
             $table->string('latitude')->nullable();
             $table->string('longtitude')->nullable();
