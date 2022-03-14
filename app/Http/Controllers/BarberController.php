@@ -92,4 +92,21 @@ class BarberController extends Controller
 
         return $array;
     }
+
+    public function search(Request $request) {
+        $array = ['error' => '', 'list'=>[] ];
+
+        $q = $request->input('q');
+        if ($q) {
+            $barber = Barber::select()
+            ->where('name', 'LIKE', '%'.$q.'%')->get();
+
+            $array['list'] = $barber;
+        } else {
+            $array['error'] = 'Digite algo para buscar';
+        }
+
+
+        return $array;
+    }
 }
